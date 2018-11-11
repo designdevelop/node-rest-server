@@ -178,12 +178,10 @@ exports.login = function(req, res){
             })
 
             p.then((token) => {
-            	let resultItem = {};
-            	resultItem.signature = token;
-            	resultItem.userId = bodyParam.userId;
+            	let resultItem = rows[0];
+				resultItem.signature = token;
+				delete resultItem.passwd;
             	response.result = resultItem;
-
-            	// response.result.userId = bodyParam.userId;
             	res.send(response);
             })
 

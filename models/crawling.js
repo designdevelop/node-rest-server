@@ -32,14 +32,14 @@ exports.add = function(req, res){
 
 	let crawling = require('../utils/crawlingManager');
 	
-	crawling("http://news.naver.com/").then(function (keywords) {
+	crawling("http://blog.naver.com/PostList.nhn?from=postList&blogId=designpress2016&categoryNo=12&currentPage=1").then(function (articleList) {
 	  	
-		// console.log(keywords[0]text);
-		for(let i=0; i<keywords.length; i++){
-			console.log("text : ", keywords[i].text());
-		}
-
-	  	response.result = null;
+		// console.log(html);
+		// for(let i=0; i<html.length; i++){
+		// 	console.log("text : ", html[i].text());
+		// }
+		
+	  	response.result = articleList;
 		
 		return res.send(response);
 	});;
